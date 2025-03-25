@@ -2,12 +2,9 @@ function twoSum(arr, target) {
   const map = new Map();
 
   for (let i = 0; i < arr.length; i++) {
-    const x = nums[i];
-    const mark = target - x;
-
-    if (map.has(mark)) return [map.get(mark), i];
-
-    map.set(x, i);
+    const x = target - arr[i];
+    if (map.has(x)) return [map.get(x), i];
+    map.set(arr[i], i);
   }
 }
 
