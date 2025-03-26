@@ -4,5 +4,5 @@ const maxDepth = function (root) {
   let left = maxDepth(root.left);
   let rigth = maxDepth(root.rigth);
 
-  return Math.max(left.rigth) + 1;
+  return Math.max(left, rigth) + 1;
 };

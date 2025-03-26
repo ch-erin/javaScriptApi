@@ -10,6 +10,7 @@ function addBigNumbers(num1, num2) {
   num2.toString();
 
   let maxLength = Math.max(num1.length, num2.length);
+
   num1 = num1.padStart(maxLength, "0");
   num2 = num2.padStart(maxLength, "0");
 

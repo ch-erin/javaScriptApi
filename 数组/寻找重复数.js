@@ -29,3 +29,25 @@ const findDuplicate = function (nums) {
 
   return ans; // 返回重复数字
 };
+
+function findDuplicate(nums) {
+  // 阶段1：找到循环中的相遇点
+  let slow = nums[0];
+  let fast = nums[0];
+  do {
+    slow = nums[slow];
+    fast = nums[nums[fast]];
+  } while (slow !== fast);
+
+  // 阶段2：找到重复的数字
+  slow = nums[0];
+  while (slow !== fast) {
+    slow = nums[slow];
+    fast = nums[fast];
+  }
+
+  return slow;
+}
+
+const nums = [1, 3, 4, 2, 2];
+console.log(findDuplicate(nums)); // 输出：2
