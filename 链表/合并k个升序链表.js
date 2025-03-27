@@ -21,12 +21,13 @@ const mergeKLists = function (lists) {
   //合并从i到j-i个链表
   function dfs(i, j) {
     const m = j - i;
-    if (!m) return null;
 
-    if (m === 1) return lists[1];
+    if (m === 0) return null;
+    if (m === 1) return lists[i];
 
-    const left = dfs(i, (i + m) >> 1);
-    const right = dfs((i + m) >> 1, j);
+    const left = dfs(i, i + (m >> 1));
+    const right = dfs(i + (m >> 1), j);
+
     return mergeTwoLists(left, right);
   }
 

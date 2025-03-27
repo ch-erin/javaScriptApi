@@ -8,5 +8,3 @@ const maxSum = (arr) => {
 
   return Math.max(...dp);
 };
-
-

@@ -28,11 +28,10 @@ const reverseKGroup = function (head, k) {
       cur = next;
     }
 
-  
     p0.next = prev;
     //原反转部分的尾节点指向cur,即下一组的头节点
     start.next = cur;
-     //更新p0伪反转部分的尾节点
+    //更新p0伪反转部分的尾节点
     p0 = start;
 
     n -= k;
@@ -79,3 +78,6 @@ const reserveKGroup = (head, k) => {
 
   return dummy.next;
 };
+
+const res = reverseK(head);
+console.log(res);
