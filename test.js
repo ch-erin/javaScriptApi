@@ -1,53 +1,25 @@
-//实现k个一组翻转链表
+//删除链表中的重复元素
 
-class ListNode {
-  constructor(val, next) {
-    this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
-  }
-}
+const deleteDuplicates = function (head) {
+  const dummy = new ListNode(0, head);
 
-const head = new ListNode(
-  1,
-  new ListNode(2, new ListNode(3, new ListNode(4, null)))
-);
+  let cur = dummy;
 
-function getLength(head) {
-  let cur = head;
-  let n = 0;
-  while (cur) {
-    n++;
-    cur = cur.next;
-  }
-}
-
-const reverseK = function (head, k) {
-  let n = getLength(head);
-
-  let dummy = new ListNode(0, head);
-  let p = dummy;
-  let prev = null;
-  let cur = p.next;
-
-  while (n >= k) {
-    let start = cur;
-
-    for (let i = 0; i < k; i++) {
-      const next = cur.next;
-      cur.next = prev;
-      prev = cur;
-      cur = next;
+  while (cur.next && cur.next.next) {
+    if (cur.next.val === cur.next.next.val) {
+      const val = cur.next.val;
+      while (cur.next && cur.next.val === val) cur.next = cur.next.next;
+    } else {
+      cur = cur.next;
     }
-
-    p.next = prev;
-    start.next = cur;
-    p = start;
-
-    n -= k;
   }
 
   return dummy.next;
 };
 
-const res = reverseK(head);
-console.log(res);
+//字符串转数字
+
+const stringArray = ["1", "2", "3", "4", "5"];
+const intArray = stringArray.map(Number);
+
+console.log(intArray);
