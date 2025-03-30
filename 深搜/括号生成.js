@@ -1,18 +1,18 @@
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
 const generateParenthesis = function (n) {
-  const m = n * 2;
+  let m = 2 * n;
   const ans = [];
   const path = [];
 
   function dfs(i, open) {
-    if (i === m) {
-      ans.push(path.join(""));
-      return;
-    }
+    if (i === m) return ans.push(path.join(""));
     if (open < n) {
       path[i] = "(";
       dfs(i + 1, open + 1);
     }
-
     if (i < 2 * open) {
       path[i] = ")";
       dfs(i + 1, open);

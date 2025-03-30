@@ -11,7 +11,7 @@
  * @param {number} right
  * @return {ListNode}
  */
-var reverseBetween = function (head, left, right) {
+const reverseBetween = function (head, left, right) {
   const dummy = new ListNode(0, head);
   let pre = head;
 
