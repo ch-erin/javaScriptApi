@@ -21,11 +21,3 @@ isSymmetric = function (root) {
 
   return true;
 };
-
-isSymmetric = function (root) {
-  function dfs(root) {
-
-  }
-};
-
-

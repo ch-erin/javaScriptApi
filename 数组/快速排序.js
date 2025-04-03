@@ -1,18 +1,19 @@
-function quickSort(arr) {
-  const length = arr.length;
-  if (!length) return [];
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left >= right) return arr;
 
-  const midIndex = Math.floor(length >> 1);
-  const midValue = arr.slice(midIndex)[0];
+  const pivot = arr[right];
+  let i = left - 1;
 
-  let left = [];
-  let right = [];
-
-  for (let i = 0; i < length; i++) {
-    arr[i] <= midValue ? left.push(arr[i]) : right.push(arr[i]);
+  for (let j = left; j < right; j++) {
+    if (arr[j] <= pivot) [arr[++i], arr[j]] = [arr[j], arr[i]];
   }
 
-  return [...quickSort(left), midValue, ...quickSort(right)];
+  [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+
+  quickSort(arr, left, i);
+  quickSort(arr, i + 2, right);
+
+  return arr;
 }
 
 const a = [1, 2, 3, 4, 5];

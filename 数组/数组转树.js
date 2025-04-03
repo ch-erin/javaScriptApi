@@ -32,3 +32,6 @@ function createTree(nums) {
 const tree = createTree(arr);
 
 console.log(tree);
+
+
+

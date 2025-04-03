@@ -10,7 +10,7 @@ function addBigNumbers(num1, num2) {
   num2.toString();
 
   let maxLength = Math.max(num1.length, num2.length);
-
+  //对齐补零
   num1 = num1.padStart(maxLength, "0");
   num2 = num2.padStart(maxLength, "0");
 
@@ -31,7 +31,6 @@ function addBigNumbers(num1, num2) {
 
   if (carry > 0) result += carry;
 
-  console.log(result);
   return result;
 }
 

@@ -47,3 +47,35 @@ export function printList(head) {
     console.log();
   }
 }
+
+export function getPointers(head, ...indices) {
+  // 检查索引是否为非负整数
+  for (let index of indices) {
+    if (index < 0) {
+      throw new Error("All indices must be non-negative");
+    }
+  }
+
+  let current = head;
+  let count = 0;
+  let result = [];
+
+  while (current) {
+    for (let index of indices) {
+      if (count === index) {
+        result.push(current); // 收集对应索引的节点
+      }
+    }
+    current = current.next;
+    count++;
+  }
+
+  // 检查是否有索引超出链表长度
+  for (let index of indices) {
+    if (index >= count) {
+      throw new Error("Index out of bounds");
+    }
+  }
+
+  return result;
+}

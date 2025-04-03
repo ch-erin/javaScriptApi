@@ -12,7 +12,6 @@ const search = function (nums, target) {
   return getTaegetIndex(nums, index - 1, nums.length, target);
 };
 
-//先暴力
 const nums = [4, 5, 6, 7, 0, 1, 2];
 
 const res = search(nums, 0);

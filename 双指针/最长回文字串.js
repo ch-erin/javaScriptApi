@@ -13,7 +13,7 @@ const longestPalindrome = function (s) {
       m--;
       n++;
     }
-    if (n - m - 1 > res.length) res = s.slice(m + 1, n);
+    if (n - (m + 1) > res.length) res = s.slice(m + 1, n);
   }
 
   return res;

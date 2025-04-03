@@ -20,5 +20,6 @@ const generateParenthesis = function (n) {
   }
 
   dfs(0, 0);
+
   return ans;
 };

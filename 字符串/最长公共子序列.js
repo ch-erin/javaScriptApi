@@ -1,8 +1,3 @@
-/**
- * @param {string} text1
- * @param {string} text2
- * @return {number}
- */
 const longestCommonSubsequence = function (text1, text2) {
   const memo = {};
   let res = "";
@@ -21,8 +16,29 @@ const longestCommonSubsequence = function (text1, text2) {
   return res;
 };
 
+//记忆化只能过三分之一
+
 const text1 = "abcde";
 const text2 = "ace";
 
 const res = longestCommonSubsequence(text1, text2);
 console.log(res);
+
+const LCS = (s, t) => {
+  const [n, m] = [s.length, t.length];
+  const dp = new Array(n + 1).fill(0).map(() => new Array(m + 1).fill(0));
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      if (s[i] === t[j]) {
+        f[i + 1][j + 1] = f[i][j] + 1;
+      } else {
+        f[i + 1][j + 1] = Math.max(f[i][j + 1], f[i + 1][j]);
+      }
+    }
+  }
+
+  return f[n][m];
+};
+
+//通解

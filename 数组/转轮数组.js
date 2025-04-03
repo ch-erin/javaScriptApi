@@ -1,5 +1,6 @@
 const rotate = function (nums, k) {
   const length = nums.length - 1;
+  
   function reserve(i, j) {
     while (i < j) {
       [nums[i], nums[j]] = [nums[j], nums[i]];

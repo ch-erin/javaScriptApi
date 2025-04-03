@@ -18,7 +18,7 @@ const partition = function (s) {
     if (i === n) return ans.push([...path]);
 
     if (i < n - 1) dfs(i + 1, start);
-    
+
     if (isPalindrome(s, start, i)) {
       path.push(s.substring(start, i + 1));
       dfs(i + 1, i + 1);

@@ -15,6 +15,7 @@ function revsere(head) {
 
   return pre;
 }
+
 function getMid(head) {
   let slow = head;
   let fast = head;
@@ -26,6 +27,7 @@ function getMid(head) {
 
   return slow;
 }
+
 const arr = [1, 2];
 
 const head = buildLinkedList(arr);
