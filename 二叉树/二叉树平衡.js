@@ -1,11 +1,18 @@
 function isBalanced(root) {
   function dfs(node) {
     if (!node) return 0;
-    const leftH = dfs(node.left);
-    if (leftH === -1) return -1;
-    const rightH = dfs(node.right);
-    if (rightH === -1 || Math.abs(leftH - rightH) > 1) return -1;
-    return Math.max(leftH, rightH) + 1;
+
+    const left = dfs(node.left);
+
+    if (left === -1) retrun - 1;
+
+    const right = dfs(node.right);
+
+    if (right !== -1) return -1;
+    if (Math.abs(left - right) > 1) return -1;
+
+    return Math.max(left, right) + 1;
   }
+
   return dfs(root) !== -1;
 }

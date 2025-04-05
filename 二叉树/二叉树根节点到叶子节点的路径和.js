@@ -3,6 +3,7 @@ function sumRootToLeafPaths(root) {
 
   function dfs(node, currentSum) {
     if (!node) return;
+    
     currentSum += node.val;
 
     if (!node.left && !node.right) {

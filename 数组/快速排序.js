@@ -16,6 +16,22 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
   return arr;
 }
 
+const quick = (arr) => {
+  if (arr.length <= 1) return arr;
+
+  let pivotIndex = Math.floor(arr.length / 2);
+  let pivot = arr.splice(pivotIndex, 1)[0];
+
+  let left = [];
+  let right = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] < pivot ? left.push(arr[i]) : right.push(arr[i]);
+  }
+
+  return [...quick(left), pivot, ...quick(right)];
+};
+
 const a = [1, 2, 3, 4, 5];
 const res = quickSort(a);
 console.log(res);

@@ -7,7 +7,6 @@ function maxPathSum(root) {
     const lVal = dfs(root.left);
     const rVal = dfs(root.right);
 
-    //ans是总链长
     ans = Math.max(ans, lVal + rVal + node.val);
 
     const val = Math.max(lVal, rVal);

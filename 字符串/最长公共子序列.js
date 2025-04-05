@@ -24,6 +24,7 @@ const text2 = "ace";
 const res = longestCommonSubsequence(text1, text2);
 console.log(res);
 
+//上dp就ok了
 const LCS = (s, t) => {
   const [n, m] = [s.length, t.length];
   const dp = new Array(n + 1).fill(0).map(() => new Array(m + 1).fill(0));
